@@ -586,12 +586,6 @@ Seguimos o padrão [Conventional Commits](https://www.conventionalcommits.org/):
 - **Testes**: Nomenclatura descritiva (`should...When...`)
 - **Commits**: Mensagens em inglês, descritivas
 
-## 📞 Suporte
-
-- **Issues**: [GitHub Issues](https://github.com/itmoura/fiap-consultation-service/issues)
-- **Documentação**: Este README e Swagger UI
-- **Email**: italo@example.com
-
 ## 📄 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
