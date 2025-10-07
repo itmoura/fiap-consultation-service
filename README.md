@@ -38,15 +38,7 @@ O **FIAP Consultation Service** é uma aplicação Spring Boot desenvolvida para
 ## 🏗️ Arquitetura
 
 ```mermaid
-graph TB
-    subgraph "Frontend"
-        UI[Interface do Usuário]
-    end
-    
-    subgraph "API Gateway"
-        GW[Gateway/Load Balancer]
-    end
-    
+graph TB    
     subgraph "Consultation Service"
         API[REST API]
         AUTH[JWT Authentication]
@@ -67,8 +59,6 @@ graph TB
         PROM[Prometheus Metrics]
     end
     
-    UI --> GW
-    GW --> API
     API --> AUTH
     API --> BL
     BL --> PG
