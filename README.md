@@ -36,17 +36,10 @@ O **FIAP Consultation Service** é uma aplicação Spring Boot desenvolvida para
 - ✅ **Monitoramento**: Health checks e métricas com Actuator
 
 ## 🏗️ Arquitetura
+<img width="2276" height="2323" alt="FIAP - Consultation" src="https://github.com/user-attachments/assets/9f291259-15ed-4dbb-b179-537a09da291d" />
 
 ```mermaid
-graph TB
-    subgraph "Frontend"
-        UI[Interface do Usuário]
-    end
-    
-    subgraph "API Gateway"
-        GW[Gateway/Load Balancer]
-    end
-    
+graph TB    
     subgraph "Consultation Service"
         API[REST API]
         AUTH[JWT Authentication]
@@ -67,8 +60,6 @@ graph TB
         PROM[Prometheus Metrics]
     end
     
-    UI --> GW
-    GW --> API
     API --> AUTH
     API --> BL
     BL --> PG
@@ -585,12 +576,6 @@ Seguimos o padrão [Conventional Commits](https://www.conventionalcommits.org/):
 - **Java**: Seguir convenções do Google Java Style Guide
 - **Testes**: Nomenclatura descritiva (`should...When...`)
 - **Commits**: Mensagens em inglês, descritivas
-
-## 📞 Suporte
-
-- **Issues**: [GitHub Issues](https://github.com/itmoura/fiap-consultation-service/issues)
-- **Documentação**: Este README e Swagger UI
-- **Email**: italo@example.com
 
 ## 📄 Licença
 
