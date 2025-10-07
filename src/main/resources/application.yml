@@ -1,0 +1,106 @@
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:develop}
+  application:
+    name: consultation-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        type: trace
+        use_sql_comments: true
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    hikari:
+      maximum-pool-size: 30
+      connection-timeout: 24000
+      minimum-idle: 10
+    driver-class-name: org.postgresql.Driver
+
+  security:
+    jwt:
+      secret: 'ffb6a59f-459a-4619-8932-dd6db1b64b1c'
+      expiration-time: 86400000
+server:
+  port: ${APP_PORT:8080}
+management:
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+  health:
+    defaults:
+      enabled: true
+    db:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,metrics-requiredMetricName,metrics,health-path,health,info
+
+default:
+  cors:
+    allowed:
+      origin: http://localhost:8080,http://localhost:3000,http://*:3000,http://*:8080
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+
+
+kafka:
+  producer:
+    scheduling: "consultation.service.request.topic.scheduling"
+
+---
+spring:
+  config:
+    activate:
+      on-profile: develop
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_SCHEMA:consultation-db}
+    username: ${BD_USER:postgres}
+    password: ${BD_PASS:root}
+  jpa:
+    show-sql: true
+
+logging:
+  level:
+    com.consultation.service: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.SQL: DEBUG
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+
+logging:
+  level:
+    com.consultation.service: DEBUG
+
