@@ -36,6 +36,7 @@ O **FIAP Consultation Service** é uma aplicação Spring Boot desenvolvida para
 - ✅ **Monitoramento**: Health checks e métricas com Actuator
 
 ## 🏗️ Arquitetura
+<img width="2276" height="2323" alt="FIAP - Consultation" src="https://github.com/user-attachments/assets/9f291259-15ed-4dbb-b179-537a09da291d" />
 
 ```mermaid
 graph TB    
