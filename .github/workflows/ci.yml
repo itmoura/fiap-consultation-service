@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ main, aws-q-chat ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
